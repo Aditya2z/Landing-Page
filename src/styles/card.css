@@ -1,0 +1,148 @@
+.property-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    font-family: sans-serif;
+    flex: 0 0 23%;
+    text-align:left;
+  }
+  
+  .image-carousel {
+    position: relative;
+  }
+  
+  .image-carousel img {
+    width: 100%;
+    min-height: 180px;
+    max-height: 180px;
+    object-fit: cover;
+  }
+  
+  .carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 10px;
+  }
+  
+  .carousel-controls button {
+    background: rgba(255,255,255,0.8);
+    border: none;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .verified-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: green;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+  }
+  
+  .property-info {
+    padding: 15px;
+  }
+  
+  .title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .price-area {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+  }
+
+  .price {
+    display:flex;
+    flex-direction: column;
+  }
+
+  .price > :first-child {
+    color: teal;
+  }
+
+  .price > :last-child {
+    color: gray;
+    font-size: 12px;
+  }
+  
+  .area {
+    color: #444;
+  }
+  
+  .unit {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  .details {
+    font-size: 13px;
+    color: #555;
+    margin: 10px 0;
+  }
+  
+  .details span {
+    margin-right: 8px;
+  }
+  
+  .dealer  {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .dealer .meta {
+    font-size: 12px;
+    color: #999;
+  }
+  
+  .dealer .agency {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .bottom-row {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .location {
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #333;
+  }
+  
+  .actions .icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    font-size: 16px;
+    margin-left: 10px;
+  }
+
+  .description {
+
+  }
+  

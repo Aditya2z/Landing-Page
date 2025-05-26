@@ -1,0 +1,107 @@
+.property-section {
+  padding: 40px 20px;
+  text-align: center;
+  max-width:100%;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 30px;
+  border: 1px solid #d3d3d3;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0 1rem;
+  border-radius:12px;
+}
+
+.location-btn {
+  padding: 10px 20px;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+  border: none;
+  border-radius:12px;
+}
+
+.location-btn.active {
+  background: #033366;
+  color: #fff;
+}
+
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.card-list {
+  display: flex;
+  overflow-x: auto;
+  width:100%;
+  gap: 20px;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+}
+
+/* For Chrome, Edge, Safari */
+.card-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Firefox */
+.card-list {
+  scrollbar-width: none;
+  margin-left: 1rem;
+}
+
+.scroll-btn {
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.scroll-btn.left {
+  left: 0;
+}
+
+.scroll-btn.right {
+  right: 0;
+}
+
+.image-indicators {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+}
+
+.image-indicators .indicator {
+  font-size: 8px;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.3s ease;
+}
+
+.image-indicators .indicator.active {
+  color: #ffffff;
+}
