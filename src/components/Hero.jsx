@@ -2,8 +2,29 @@ import React, { useState } from "react";
 import { FaMicrophone, FaMapMarkerAlt, FaHome } from "react-icons/fa";
 import "../styles/hero.css";
 
-const HeroSection = () => {
+const HeroSection = ({ setProperties }) => {
   const [activeTab, setActiveTab] = useState("buy");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearch = async () => {
+    try {
+      const response = await fetch(
+        `api/properties?search=${encodeURIComponent(searchQuery)}`
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch properties");
+      }
+      if (response.status === 204) {
+        setProperties([]);
+        return;
+      }
+      const data = await response.json();
+
+      setProperties(data);
+    } catch (error) {
+      console.error("Error fetching properties:", error);
+    }
+  };
 
   return (
     <section className="hero-section">
@@ -46,10 +67,14 @@ const HeroSection = () => {
               type="text"
               className="search-input"
               placeholder="Search by location or Property ID..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
             />
             <FaMicrophone className="icon clickable" />
             <FaMapMarkerAlt className="icon clickable" />
-            <button className="search-button">Search</button>
+            <button className="search-button" onClick={handleSearch}>
+              Search
+            </button>
           </div>
         </div>
       </div>

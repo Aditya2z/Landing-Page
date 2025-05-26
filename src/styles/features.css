@@ -1,56 +1,67 @@
 .feature-section {
-    padding: 40px 20px;
-    background-color: #f9f9f9;
-  }
-  
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+}
+
+.feature-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background-color: #e5f2fc;
+  border-radius: 16px;
+  width: 29%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s;
+  background-image: url("../assets/10800401.png");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: auto 80%;
+  text-align: left;
+  padding-bottom: 120px;
+  margin: 0.5rem;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-text {
+  width: 50%;
+  cursor: pointer;
+}
+
+.feature-text h3 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+
+.feature-text p {
+  font-size: 1rem;
+  color: #444;
+}
+
+.feature-text .arrow {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+@media (max-width: 768px) {
   .feature-container {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin: 0 auto;
-  }
-  
-  .feature-card {
-    background-color: #e5f2fc;
-    border-radius: 16px;
-    width: 29%;
-    padding: 20px;
-    display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.3s;
-    background-image: url("../assets/10800401.png");
-    background-repeat: no-repeat;
-    background-position: right bottom;
-    background-size:auto 80%;
-    text-align: left;
-    padding-bottom: 120px;
-    margin: 0.5rem;
-  }
-  
-  .feature-card:hover {
-    transform: translateY(-5px);
+    align-items: center;
   }
 
-  .feature-text {
-    width:50%;
-    cursor:pointer;
+  .feature-card {
+    width: 80%;
   }
-  
-  .feature-text h3 {
-    font-size: 1.3rem;
-    margin-bottom: 8px;
-    margin-top: 0;
-  }
-  
-  .feature-text p {
-    font-size: 1rem;
-    color: #444;
-  }
-  
-  .feature-text .arrow {
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: #555;
-  }
-  
+}

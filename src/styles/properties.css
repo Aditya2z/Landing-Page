@@ -1,7 +1,7 @@
 .property-section {
   padding: 40px 20px;
   text-align: center;
-  max-width:100%;
+  max-width: 100%;
 }
 
 .section-title {
@@ -20,7 +20,7 @@
   width: fit-content;
   margin: 0 auto;
   padding: 0 1rem;
-  border-radius:12px;
+  border-radius: 12px;
 }
 
 .location-btn {
@@ -30,7 +30,7 @@
   font-weight: 500;
   transition: 0.3s;
   border: none;
-  border-radius:12px;
+  border-radius: 12px;
 }
 
 .location-btn.active {
@@ -48,7 +48,7 @@
 .card-list {
   display: flex;
   overflow-x: auto;
-  width:100%;
+  width: 100%;
   gap: 20px;
   scroll-behavior: smooth;
   padding: 10px 0;
@@ -63,6 +63,11 @@
 .card-list {
   scrollbar-width: none;
   margin-left: 1rem;
+  white-space: nowrap;
+}
+
+.card-list > * {
+  flex: 0 0 23%;
 }
 
 .scroll-btn {
@@ -104,4 +109,36 @@
 
 .image-indicators .indicator.active {
   color: #ffffff;
+}
+
+.no-results {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  width: fit-content;
+  margin: 1rem auto;
+  padding-right: 1rem;
+  border-radius: 12px;
+}
+
+.no-results img {
+  max-width: 2rem;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  .filter-buttons {
+    width: 80%;
+  }
+  .card-list > * {
+    flex: 0 0 80%;
+  }
+
+  .no-results {
+    width: 80%;
+  }
 }

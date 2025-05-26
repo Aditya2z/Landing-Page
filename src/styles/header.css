@@ -75,3 +75,50 @@
   margin-left:1rem;
   font-size:1rem;
 }
+.btn-pannel.mobile {
+    display: none; /* Optional: hide buttons on mobile */
+  }
+
+/* Basic setup for hamburger icon */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    display: none;
+    background-color: skyblue;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .btn-pannel.desktop {
+    display: none; /* Optional: hide buttons on mobile */
+  }
+  .btn-pannel.mobile {
+    display: block; /* Optional: hide buttons on mobile */
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .navbar {
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+

@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import PropertyCard from "./Card";
 import "../styles/properties.css";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { useRef } from "react";
 
-const PropertyList = () => {
-  const [properties, setProperties] = useState(null);
+const PropertyList = ({ properties, setProperties }) => {
   const [selectedCity, setSelectedCity] = useState("");
   const [loading, setLoading] = useState(true);
+  const scrollRef = useRef(null);
 
   const cities = ["Abhu Dhabi", "Dubai", "Sharjah", "Ajman", "Ras Al Khaima"];
 
@@ -15,9 +16,16 @@ const PropertyList = () => {
       setLoading(true);
       let response;
       if (city) {
-        response = await fetch(`/api/properties?search=${city[0]}`);
+        response = await fetch(`/api/properties?search=${city}`);
       } else {
         response = await fetch(`/api/properties`);
+      }
+      if (!response.ok) {
+        throw new Error("Failed to fetch properties");
+      }
+      if (response.status === 204) {
+        setProperties([]);
+        return;
       }
       const data = await response.json();
       setProperties(data);
@@ -37,10 +45,9 @@ const PropertyList = () => {
   }, [selectedCity]);
 
   const scrollContainer = (direction) => {
-    const container = document.querySelector(".card-list");
-    if (container) {
-      container.scrollBy({
-        left: direction === "left" ? -400 : 400,
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({
+        left: direction === "left" ? -350 : 350,
         behavior: "smooth",
       });
     }
@@ -65,7 +72,10 @@ const PropertyList = () => {
         <p className="loading">Loading properties...</p>
       ) : properties.length === 0 ? (
         <div className="no-results">
-          <img src="/images/no-results.png" alt="No Results" />
+          <img
+            src="/assets/anastasiya-badun-qdiTkuy-4YM-unsplash.jpg"
+            alt="No Results"
+          />
           <p>No properties were found matching your criteria.</p>
         </div>
       ) : (
@@ -77,7 +87,7 @@ const PropertyList = () => {
             <FaArrowLeft />
           </button>
 
-          <div className="card-list">
+          <div className="card-list" ref={scrollRef}>
             {properties.map((property) => (
               <PropertyCard key={property.id} property={property} />
             ))}

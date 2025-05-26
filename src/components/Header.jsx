@@ -1,12 +1,18 @@
 import { useState } from "react";
-import { BsHouse, BsPerson, BsArrowUpRight } from "react-icons/bs";
+import { BsHouse, BsPerson, BsArrowUpRight, BsList, BsX } from "react-icons/bs";
 import "../styles/header.css";
 
 const Header = () => {
   const [activeLink, setActiveLink] = useState("buyers");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleNavClick = (key) => {
     setActiveLink(key);
+    setMenuOpen(false); // close menu on link click
+  };
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
   };
 
   return (
@@ -16,7 +22,12 @@ const Header = () => {
           <BsHouse />
           <span>RealtorX</span>
         </div>
-        <ul className="nav-links">
+
+        <div className="hamburger" onClick={toggleMenu}>
+          {menuOpen ? <BsX /> : <BsList />}
+        </div>
+
+        <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
           <li>
             <a
               href="#"
@@ -62,8 +73,20 @@ const Header = () => {
               Insights
             </a>
           </li>
+
+          <ul className="btn-pannel mobile">
+          <button className="login-btn">
+            <BsPerson />
+            <span>Login</span>
+          </button>
+          <button className="post-btn">
+            <span>Post a property</span>
+            <BsArrowUpRight />
+          </button>
         </ul>
-        <ul className="btn-pannel">
+        </ul>
+
+        <ul className="btn-pannel desktop">
           <button className="login-btn">
             <BsPerson />
             <span>Login</span>
